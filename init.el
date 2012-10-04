@@ -31,7 +31,9 @@
                         starter-kit-lisp
                         ;clojure-mode
                         ;nrepl
-                        geiser)
+                        ;ecb-snapshot
+                        geiser
+                        markdown-mode)
     "A list of packages to ensure are installed at launch.")
   (dolist (p my-packages)
     (when (not (package-installed-p p))
@@ -356,8 +358,8 @@
 
 
 ; markdown mode =============================================
-(autoload 'markdown-mode "markdown-mode.el"
-  "Major mode for editing Markdown files" t)
+;; (autoload 'markdown-mode "markdown-mode.el"
+;;   "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
       (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 

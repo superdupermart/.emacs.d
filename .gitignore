@@ -7,4 +7,5 @@ elpa/
 auto-save-list/
 backup-files/
 backups/
+slime/
 *.elc
