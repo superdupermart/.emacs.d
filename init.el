@@ -31,7 +31,7 @@
                         starter-kit-lisp
                         ;clojure-mode
                         ;nrepl
-                        ;ecb-snapshot
+                        ecb-snapshot
                         geiser
                         markdown-mode)
     "A list of packages to ensure are installed at launch.")
@@ -49,7 +49,7 @@
 ;; ;; ecb =======================================================
 ;; (add-to-list 'load-path "~/.emacs.d/ecb-snap/")
 ;; (require 'ecb)
-;; (setq stack-trace-on-error t)
+(setq stack-trace-on-error t)
 
 ;; (define-key ecb-mode-map (kbd "M-1") 'ecb-goto-window-directories)
 ;; (define-key ecb-mode-map (kbd "M-2") 'ecb-goto-window-sources)
@@ -73,6 +73,7 @@
  '(ecb-compile-window-width (quote edit-window))
  '(ecb-excluded-directories-regexps (quote ("^\\.$" "^\\.\\.$")))
  '(ecb-ignore-pop-up-frames (quote always))
+ '(ecb-layout-name "leftright3")
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(ecb-show-sources-in-directories-buffer (quote always))
