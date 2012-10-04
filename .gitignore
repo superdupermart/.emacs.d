@@ -1,0 +1,10 @@
+*~
+.DS_Store
+archive-contents
+.smex-items
+places
+elpa/
+auto-save-list/
+backup-files/
+backups/
+*.elc
