@@ -9,3 +9,5 @@ backup-files/
 backups/
 slime/
 *.elc
+eshell/history
+eshell/lastdir

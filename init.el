@@ -83,6 +83,7 @@
  '(ecb-tree-make-parent-node-sticky nil)
  '(ecb-use-recursive-edit t)
  '(ecb-windows-width 0.2)
+ '(eshell-directory-name "~/.emacs.d/eshell/")
  '(geiser-active-implementations (quote (racket guile)))
  '(geiser-racket-binary "/Applications/Racket_v5.3/bin/racket")
  '(geiser-racket-collects (quote ("/Applications/Racket_v5.3/collects")))
