@@ -33,10 +33,11 @@
                         ;nrepl
                         ecb-snapshot
                         geiser
-                        markdown-mode)
+                        markdown-mode
+                        web)
     "A list of packages to ensure are installed at launch.")
   (dolist (p my-packages)
-    (when (not (package-installed-p p))
+    (when (and (not (package-installed-p p)) (y-or-n-p "Do you want to install? "))
       (package-install p)))
   )
 
