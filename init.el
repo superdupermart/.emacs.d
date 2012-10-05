@@ -34,7 +34,7 @@
                         ecb-snapshot
                         geiser
                         markdown-mode
-                        web)
+                        )
     "A list of packages to ensure are installed at launch.")
   (dolist (p my-packages)
     (when (and (not (package-installed-p p)) (y-or-n-p "Do you want to install? "))
@@ -190,28 +190,31 @@
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 (global-set-key [home] 'smart-beginning-of-line)
 
-(set-face-font 'default "Monaco-14")
-;(set-face-font 'default "Dejavu Sans Mono-14")
-(set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-                  '("NanumGothicCoding" . "iso10646-1"))
-(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-                  '("NanumGothicCoding" . "iso10646-1"))
-;; (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-;;                   '("Malgun Gothic" . "iso10646-1"))
-;; (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-;;                   '("Malgun Gothic" . "iso10646-1"))
-;; (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-;;                   '("NanumMyeongjo" . "iso10646-1"))
-;; (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-;;                   '("NanumMyeongjo" . "iso10646-1"))
-(set-fontset-font "fontset-default" 'kana
-                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-(set-fontset-font "fontset-default" 'han
-                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-(set-fontset-font "fontset-default" 'japanese-jisx0208
-                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-(set-fontset-font "fontset-default" 'katakana-jisx0201
-                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+(if (equal system-type 'darwin)
+    (progn
+      (set-face-font 'default "Monaco-14")
+      ;(set-face-font 'default "Dejavu Sans Mono-14")
+      (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
+			'("NanumGothicCoding" . "iso10646-1"))
+      (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
+			'("NanumGothicCoding" . "iso10646-1"))
+      ;; (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
+      ;;                   '("Malgun Gothic" . "iso10646-1"))
+      ;; (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
+      ;;                   '("Malgun Gothic" . "iso10646-1"))
+      ;; (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
+      ;;                   '("NanumMyeongjo" . "iso10646-1"))
+      ;; (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
+      ;;                   '("NanumMyeongjo" . "iso10646-1"))
+      (set-fontset-font "fontset-default" 'kana
+			'("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+      (set-fontset-font "fontset-default" 'han
+			'("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+      (set-fontset-font "fontset-default" 'japanese-jisx0208
+			'("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+      (set-fontset-font "fontset-default" 'katakana-jisx0201
+			'("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+      ))
 
 (defun switch-to-minibuffer-window ()
   "switch to minibuffer window (if active)"
