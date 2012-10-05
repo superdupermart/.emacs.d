@@ -1,3 +1,7 @@
+(prefer-coding-system 'utf-8)
+(setq input-method-verbose-flag nil)
+(add-to-list 'load-path "~/.emacs.d/")
+
 (when (<= emacs-major-version 23)
   ;; emacs 23 설정 코드
   
@@ -65,11 +69,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(backup-directory-alist (quote (("." . "~/.emacs.d/backup-files"))))
  '(blink-cursor-mode nil)
  '(cua-enable-cua-keys (quote shift))
  '(cua-mode t nil (cua-base))
- '(current-language-environment "Korean")
+ '(current-language-environment "UTF-8")
  '(custom-enabled-themes (quote (adwaita)))
  '(ecb-compile-window-width (quote edit-window))
  '(ecb-excluded-directories-regexps (quote ("^\\.$" "^\\.\\.$")))
@@ -102,9 +105,11 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-to-list 'load-path "~/.emacs.d/")
-
-(prefer-coding-system 'utf-8)
+(if (equal system-type 'windows-nt)
+    (progn
+      (setq geiser-racket-binary "C:/Program Files/Racket/Racket")
+      (setq geiser-racket-collects (quote ("C:/Program Files/Racket/collects")))
+      ))
 
 ;(setenv "PATH" "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin")
 
@@ -244,6 +249,9 @@
 ;(setq inferior-lisp-program "clisp")
 ;(setq inferior-lisp-program "sbcl")
 (setq inferior-lisp-program "/usr/local/share/ccl/dx86cl64 -K utf-8")
+(if (equal system-type 'windows-nt)
+    (progn
+      (setq inferior-lisp-program "C:/Program Files/clisp-2.49/clisp.exe")))
 ;; (setq slime-lisp-implementations
 ;;       `((sbcl ("/usr/local/bin/sbcl"))))
 ;;        (clisp ("/opt/local/bin/clisp"))))
