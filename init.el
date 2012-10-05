@@ -43,6 +43,8 @@
   (dolist (p my-packages)
     (when (and (not (package-installed-p p)) (y-or-n-p "Do you want to install? "))
       (package-install p)))
+  ;; starter-kit 을 깔면 hl-line-mode 가 활성화 되는데 이걸 해제할려면...
+  (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
   )
 
 ;; ;; cedet =====================================================
@@ -233,10 +235,10 @@
 ;(load-file "~/.emacs.d/geiser/elisp/geiser.el")
 
 ;; for Lisp
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 ;(add-to-list 'load-path "~/.emacs.d/slime/")
 (require 'slime-autoloads)
 ;(require 'slime)
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (eval-after-load "slime"
   '(progn
     ;(add-to-list 'load-path "~/.emacs.d/slime/contrib")
