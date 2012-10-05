@@ -197,7 +197,7 @@
 
 (if (equal system-type 'darwin)
     (progn
-      (set-face-font 'default "Monaco-14")
+      ;(set-face-font 'default "Monaco-14")
       ;(set-face-font 'default "Dejavu Sans Mono-14")
       (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
 			'("NanumGothicCoding" . "iso10646-1"))
@@ -233,13 +233,13 @@
 ;(load-file "~/.emacs.d/geiser/elisp/geiser.el")
 
 ;; for Lisp
-(add-to-list 'load-path "~/.emacs.d/slime/")
+;(add-to-list 'load-path "~/.emacs.d/slime/")
 (require 'slime-autoloads)
 ;(require 'slime)
-;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (eval-after-load "slime"
   '(progn
-    (add-to-list 'load-path "~/.emacs.d/slime/contrib")
+    ;(add-to-list 'load-path "~/.emacs.d/slime/contrib")
     (slime-setup '(slime-fancy slime-banner))
     (setq slime-complete-symbol*-fancy t)
     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
