@@ -199,7 +199,7 @@
 
 (if (equal system-type 'darwin)
     (progn
-      ;(set-face-font 'default "Monaco-14")
+      (set-face-font 'default "Monaco-14")
       ;(set-face-font 'default "Dejavu Sans Mono-14")
       (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
 			'("NanumGothicCoding" . "iso10646-1"))
