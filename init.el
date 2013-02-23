@@ -199,12 +199,12 @@
 
 (if (equal system-type 'darwin)
     (progn
-      (set-face-font 'default "Monaco-14")
-      ;(set-face-font 'default "Dejavu Sans Mono-14")
+      (set-face-font 'default "Cantarell-14")
+      ;; (set-face-font 'default "Dejavu Sans Mono-14")
       (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-			'("NanumGothicCoding" . "iso10646-1"))
+        		'("InterparkGothicOTF" . "iso10646-1"))
       (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-			'("NanumGothicCoding" . "iso10646-1"))
+        		'("InterparkGothicOTF" . "iso10646-1"))
       ;; (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
       ;;                   '("Malgun Gothic" . "iso10646-1"))
       ;; (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
@@ -229,6 +229,10 @@
   (when (active-minibuffer-window)
     (select-window (active-minibuffer-window))))
 ;(global-set-key (kbd "<f8>") 'switch-to-minibuffer-window)
+
+;; for Haskell
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 
 ;; for Scheme
 ;(require 'quack)
@@ -266,7 +270,7 @@
 
 ;(define-key slime-mode-map (kbd "C-c C-n") 'slime-switch-to-output-buffer)
 
-;(setq default-input-method "korean-hangul")
+(setq default-input-method "korean-hangul")
 
 ;; (setq inferior-lisp-program "sbcl")
 ;; (require 'slime)
