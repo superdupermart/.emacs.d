@@ -76,6 +76,7 @@
  '(cua-mode t nil (cua-base))
  '(current-language-environment "UTF-8")
  '(custom-enabled-themes (quote (adwaita)))
+ '(default-input-method "korean-hangul")
  '(ecb-compile-window-width (quote edit-window))
  '(ecb-excluded-directories-regexps (quote ("^\\.$" "^\\.\\.$")))
  '(ecb-ignore-pop-up-frames (quote always))
@@ -105,7 +106,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "Cantarell" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))
 
 (if (equal system-type 'windows-nt)
     (progn
@@ -199,7 +200,7 @@
 
 (if (equal system-type 'darwin)
     (progn
-      (set-face-font 'default "Cantarell-14")
+      ;; (set-face-font 'default "Cantarell-14")
       ;; (set-face-font 'default "Dejavu Sans Mono-14")
       (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
         		'("InterparkGothicOTF" . "iso10646-1"))
@@ -269,8 +270,6 @@
                     (normal-mode)))))
 
 ;(define-key slime-mode-map (kbd "C-c C-n") 'slime-switch-to-output-buffer)
-
-(setq default-input-method "korean-hangul")
 
 ;; (setq inferior-lisp-program "sbcl")
 ;; (require 'slime)
