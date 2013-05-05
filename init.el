@@ -40,11 +40,11 @@
                         markdown-mode
                         )
     "A list of packages to ensure are installed at launch.")
-  (dolist (p my-packages)
-    (when (and (not (package-installed-p p)) (y-or-n-p "Do you want to install? "))
-      (package-install p)))
-  ;; starter-kit 을 깔면 hl-line-mode 가 활성화 되는데 이걸 해제할려면...
-  (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+  ;; (dolist (p my-packages)
+  ;;   (when (and (not (package-installed-p p)) (y-or-n-p "Do you want to install? "))
+  ;;     (package-install p)))
+  ;; ;; starter-kit 을 깔면 hl-line-mode 가 활성화 되는데 이걸 해제할려면...
+  ;; (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
   )
 
 ;; ;; cedet =====================================================
@@ -93,10 +93,9 @@
  '(ecb-windows-width 0.2)
  '(eshell-directory-name "~/.emacs.d/eshell/")
  '(geiser-active-implementations (quote (racket guile)))
- '(geiser-racket-binary "/Applications/Racket_v5.3/bin/racket")
- '(geiser-racket-collects (quote ("/Applications/Racket_v5.3/collects")))
+ '(geiser-racket-binary "/Applications/Racket v5.3.3/bin/racket")
+ '(geiser-racket-collects (quote ("/Applications/Racket v5.3.3/collects")))
  '(ido-mode (quote both) nil (ido))
- '(menu-bar-mode t)
  '(mouse-wheel-progressive-speed nil)
  '(send-mail-function (quote sendmail-send-it))
  '(show-paren-mode t)
@@ -231,9 +230,10 @@
     (select-window (active-minibuffer-window))))
 ;(global-set-key (kbd "<f8>") 'switch-to-minibuffer-window)
 
-;; for Haskell
-(autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
+;; ;; for Haskell
+;; (add-to-list 'load-path "~/.emacs.d/ghc-mod/")
+;; (autoload 'ghc-init "ghc" nil t)
+;; (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 
 ;; for Scheme
 ;(require 'quack)
