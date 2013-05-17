@@ -93,8 +93,8 @@
  '(ecb-windows-width 0.2)
  '(eshell-directory-name "~/.emacs.d/eshell/")
  '(geiser-active-implementations (quote (racket guile)))
- '(geiser-racket-binary "/Applications/Racket v5.3.3/bin/racket")
- '(geiser-racket-collects (quote ("/Applications/Racket v5.3.3/collects")))
+ '(geiser-racket-binary "/Applications/Racket v5.3.4/bin/racket")
+ '(geiser-racket-collects (quote ("/Applications/Racket v5.3.4/collects")))
  '(ido-mode (quote both) nil (ido))
  '(mouse-wheel-progressive-speed nil)
  '(send-mail-function (quote sendmail-send-it))
@@ -105,7 +105,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Cantarell" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))
+ '(default ((t (:family "Source Code Pro" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))
+
+;; for smex
+(global-set-key [(meta x)] (lambda ()
+                             (interactive)
+                             (or (boundp 'smex-cache)
+                                 (smex-initialize))
+                             (global-set-key [(meta x)] 'smex)
+                             (smex)))
+
+(global-set-key [(shift meta x)] (lambda ()
+                                   (interactive)
+                                   (or (boundp 'smex-cache)
+                                       (smex-initialize))
+                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
+                                   (smex-major-mode-commands)))
 
 (if (equal system-type 'windows-nt)
     (progn
@@ -199,7 +214,7 @@
 
 (if (equal system-type 'darwin)
     (progn
-      ;; (set-face-font 'default "Cantarell-14")
+      ;; (set-face-font 'default "Monaco-14")
       ;; (set-face-font 'default "Dejavu Sans Mono-14")
       (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
         		'("InterparkGothicOTF" . "iso10646-1"))
