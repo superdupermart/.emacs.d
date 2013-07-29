@@ -23,10 +23,10 @@
   
   ;; elpa 시스템 많이 부족하다. 좀 더 발전하면 써야겠다.
   (require 'package)
-  (add-to-list 'package-archives 
-  	       '("marmalade" . "http://marmalade-repo.org/packages/") t)
-  ;; (add-to-list 'package-archives
-  ;; 	       '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  ;; (add-to-list 'package-archives 
+  ;; 	       '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  (add-to-list 'package-archives
+  	       '("melpa" . "http://melpa.milkbox.net/packages/") t)
   (package-initialize)
   (when (not package-archive-contents)
     (package-refresh-contents))
@@ -47,24 +47,6 @@
   ;; (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
   )
 
-;; ;; cedet =====================================================
-;; (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-;; (global-ede-mode t)
-;; (semantic-load-enable-code-helpers)
-;; (global-srecode-minor-mode 1)
-
-;; ;; ecb =======================================================
-;; (add-to-list 'load-path "~/.emacs.d/ecb-snap/")
-;; (require 'ecb)
-(setq stack-trace-on-error t)
-
-;; (define-key ecb-mode-map (kbd "M-1") 'ecb-goto-window-directories)
-;; (define-key ecb-mode-map (kbd "M-2") 'ecb-goto-window-sources)
-;; (define-key ecb-mode-map (kbd "M-3") 'ecb-goto-window-methods)
-;; (define-key ecb-mode-map (kbd "M-4") 'ecb-goto-window-history)
-;; (define-key ecb-mode-map (kbd "M-5") 'ecb-goto-window-compilation)
-;; (define-key ecb-mode-map (kbd "M-0") 'ecb-goto-window-edit1)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -80,7 +62,7 @@
  '(ecb-compile-window-width (quote edit-window))
  '(ecb-excluded-directories-regexps (quote ("^\\.$" "^\\.\\.$")))
  '(ecb-ignore-pop-up-frames (quote always))
- '(ecb-layout-name "leftright3")
+ '(ecb-layout-name "leftright2")
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(ecb-show-sources-in-directories-buffer (quote always))
@@ -397,9 +379,28 @@
 (setq auto-mode-alist
       (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict") 
 
 
+;; ;; cedet =====================================================
+;; (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
+;; (global-ede-mode t)
+;; (semantic-load-enable-code-helpers)
+;; (global-srecode-minor-mode 1)
 
+;; ;; ecb =======================================================
+;; (add-to-list 'load-path "~/.emacs.d/ecb-snap/")
+(require 'ecb)
+(setq stack-trace-on-error t)
+
+(define-key ecb-mode-map (kbd "M-1") 'ecb-goto-window-directories)
+(define-key ecb-mode-map (kbd "M-2") 'ecb-goto-window-sources)
+(define-key ecb-mode-map (kbd "M-3") 'ecb-goto-window-methods)
+(define-key ecb-mode-map (kbd "M-4") 'ecb-goto-window-history)
+(define-key ecb-mode-map (kbd "M-5") 'ecb-goto-window-compilation)
+(define-key ecb-mode-map (kbd "M-0") 'ecb-goto-window-edit1)
 
 
 
