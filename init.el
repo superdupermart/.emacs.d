@@ -356,23 +356,6 @@
 
 ;(setq scheme-program-name "/Applications/Racket_v5.2/bin/racket")
 
-
-
-; fullscreen for mac ========================================
-;; (require 'maxframe)
-;; (defvar my-fullscreen-p t "Check if fullscreen is on or off")
-
-;; (defun my-toggle-fullscreen ()
-;;   (interactive)
-;;   (setq my-fullscreen-p (not my-fullscreen-p))
-;;   (if my-fullscreen-p
-;;       (restore-frame)
-;;     (maximize-frame)))
-
-;; (global-set-key (kbd "M-RET") 'my-toggle-fullscreen)
-
-
-
 ; markdown mode =============================================
 ;; (autoload 'markdown-mode "markdown-mode.el"
 ;;   "Major mode for editing Markdown files" t)
@@ -382,7 +365,6 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict") 
-
 
 ;; ;; cedet =====================================================
 ;; (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
